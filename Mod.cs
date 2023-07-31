@@ -33,7 +33,12 @@ namespace SlotMachineNS
 
         protected override bool CanHaveCard(CardData otherCard)
         {
-            if (otherCard.Id == "gold") // || otherCard.Id == Id TODO: fix multiple slots running at the same time
+            // TODO:
+            // be able to stack slots ontop of each other
+            // but only one slot should run at once, not multiple
+            // this is probably solved in UpdateCard...
+            // maybe only start timer when there is a gold exactly on top of this card, and not anywhere in stack
+            if (otherCard.Id == "gold") // || otherCard.Id == Id
                 return true;
 
             return base.CanHaveCard(otherCard);
@@ -62,6 +67,11 @@ namespace SlotMachineNS
         public void Gamble()
         {
             // destroy 1 gold
+            // TODO
+            // not sure why I have to do `MyGameCard.GetRootCard().CardData`
+            // saw that in GameScripts for other cards
+            // but if I don't then somehow the slot does not get destroyed
+            // which makes no sense to me
             MyGameCard.GetRootCard().CardData.DestroyChildrenMatchingPredicateAndRestack((CardData c) => c.Id == "gold", 1);
 
             if (new System.Random().Next(0, MaxExplodeChance) <= ExplodeChance)
@@ -97,6 +107,10 @@ namespace SlotMachineNS
 
                     // spawn card(s)
                     WorldManager.instance.StackSend(card);
+
+                    // TODO
+                    // the spawning of coins here looks a bit strange in game
+                    // the stack jitters a lot when coins are spawned and added
                 }
 
             }
