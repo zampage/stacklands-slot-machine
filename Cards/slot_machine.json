@@ -3,21 +3,26 @@
     "nameTerm": "slot_machine_card_name",
     "descriptionTerm": "slot_machine_card_description",
     "type": "Structures",
-	"value": 10,
+    "_IsBuilding": true,
+	"value": 5,
 	"script": "SlotMachineNS.SlotMachineCard",
     "_LootBag": {
-        "Chances": [
-            {"Id": "gold", "PercentageChance": 0.9},
-            {"Id": "poop", "PercentageChance": 0.1}
+        "type": "Chances",
+        "cards": 2,
+        "chances": [
+            {"id": "gold", "chance": 90},
+            {"id": "poop", "chance": 10}
         ]
     },
     "_ExplodeBag": {
-        "Chances": [
-            {"Id": "gold_bar", "PercentageChance": 0.05},
-            {"Id": "chicken", "PercentageChance": 0.1},
-            {"Id": "rat", "PercentageChance": 0.1},
-            {"Id": "iron_bar", "PercentageChance": 0.15},
-            {"Id": "gold", "PercentageChance": 0.6}
+        "type": "Chances",
+        "cards": 5,
+        "chances": [
+            {"id": "gold_bar", "chance": 5},
+            {"id": "chicken", "chance": 10},
+            {"id": "rat", "chance": 10},
+            {"id": "iron_bar", "chance": 25},
+            {"id": "gold", "chance": 50}
         ]
     }
 }

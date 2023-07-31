@@ -1,12 +1,12 @@
 {
     "id": "slot_machine_card_idea",
-    "nameTerm": "slot_machine_idea_name",
+    "nameTerm": "slot_machine_card_idea_name",
     "group": "Building",
     "subprints": [
         {
             "RequiredCards": "iron_bar, stick, stone, gold",
             "ResultCard": "slot_machine_card",
-            "Time": 2,
+            "Time": 5,
             "StatusTerm": "slot_machine_card_idea_create_status"
         }
     ]
